@@ -30,5 +30,29 @@
     "explanation": "Creates a rule named 'allow-ssh' opening TCP port 22. By default allows from 0.0.0.0/0 unless --source-ranges is specified.",
     "tags": ["gcloud", "vpc", "security"],
     "level": 1
+  },
+  {
+    "id": 5,
+    "question": "What is the command to create a subnet?",
+    "answer": "gcloud compute networks subnets create <name> --network=<vpc> --region=<region> --range=<cidr>",
+    "explanation": "Creates a regional subnet within a custom VPC. Must specify region and IP range (CIDR).",
+    "tags": ["gcloud", "vpc", "subnet"],
+    "level": 1
+  },
+  {
+    "id": 6,
+    "question": "What is the command to list all subnets in a VPC?",
+    "answer": "gcloud compute networks subnets list --network=<vpc>",
+    "explanation": "Lists subnets filtered by the VPC network. Shows region, range, and gateway IP.",
+    "tags": ["gcloud", "vpc", "subnet"],
+    "level": 1
+  },
+  {
+    "id": 7,
+    "question": "What is the command to describe a specific subnet?",
+    "answer": "gcloud compute networks subnets describe <name> --region=<region>",
+    "explanation": "Shows detailed configuration of a subnet, including Private Google Access, flow logs, and secondary ranges.",
+    "tags": ["gcloud", "vpc", "subnet"],
+    "level": 1
   }
 ]
