@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "question": "What is the command to create a custom VPC?",
+    "answer": "gcloud compute networks create <name> --subnet-mode=custom",
+    "explanation": "This creates a global VPC shell. The '--subnet-mode=custom' flag is crucial to prevent automatic subnet creation in every region.",
+    "tags": ["gcloud", "vpc"],
+    "level": 1
+  },
+  {
+    "id": 2,
+    "question": "What is the command to list current configuration?",
+    "answer": "gcloud config list",
+    "explanation": "Shows the active configuration: account, project, region, and zone.",
+    "tags": ["gcloud", "config"],
+    "level": 1
+  },
+  {
+    "id": 3,
+    "question": "What is the default subnet mode?",
+    "answer": "Auto",
+    "explanation": "Default mode automatically creates a subnet in every region. Good for demos, bad for production isolation.",
+    "tags": ["vpc", "concept"],
+    "level": 1
+  },
+  {
+    "id": 4,
+    "question": "What firewall rule allows SSH access?",
+    "answer": "gcloud compute firewall-rules create allow-ssh --allow tcp:22",
+    "explanation": "Creates a rule named 'allow-ssh' opening TCP port 22. By default allows from 0.0.0.0/0 unless --source-ranges is specified.",
+    "tags": ["gcloud", "vpc", "security"],
+    "level": 1
+  }
+]
