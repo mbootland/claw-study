@@ -54,5 +54,21 @@
     "explanation": "Shows detailed configuration of a subnet, including Private Google Access, flow logs, and secondary ranges.",
     "tags": ["gcloud", "vpc", "subnet"],
     "level": 1
+  },
+  {
+    "id": 8,
+    "question": "What command creates a firewall rule to allow SSH from anywhere?",
+    "answer": "gcloud compute firewall-rules create <name> --network=<vpc> --allow tcp:22 --source-ranges=0.0.0.0/0",
+    "explanation": "Creates an ingress rule allowing TCP port 22 from any IP. Essential for SSH access to instances without IAP.",
+    "tags": ["gcloud", "vpc", "firewall"],
+    "level": 1
+  },
+  {
+    "id": 9,
+    "question": "What command allows all internal traffic within a VPC?",
+    "answer": "gcloud compute firewall-rules create <name> --network=<vpc> --allow tcp,udp,icmp --source-ranges=10.0.0.0/16",
+    "explanation": "Allows instances within the VPC (10.0.0.0/16 CIDR) to communicate freely on all ports via internal IP.",
+    "tags": ["gcloud", "vpc", "firewall"],
+    "level": 1
   }
 ]
