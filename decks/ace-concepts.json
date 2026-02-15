@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "question": "Scenario: You need to run a legacy Java application that requires specific OS libraries. Which compute service?",
+    "answer": "GKE or App Engine Flexible",
+    "explanation": "App Engine Standard is limited to specific runtimes/sandboxes. Flexible and GKE allow custom containers with OS dependencies.",
+    "tags": ["compute", "scenario"],
+    "level": 2
+  },
+  {
+    "id": 2,
+    "question": "Scenario: You need to store legal documents for 7 years for compliance, but they will rarely be accessed. Which storage class?",
+    "answer": "Archive Storage",
+    "explanation": "Archive is the cheapest for storage but expensive for retrieval. Ideal for 'write once, read never' compliance data.",
+    "tags": ["storage", "scenario"],
+    "level": 1
+  },
+  {
+    "id": 3,
+    "question": "Scenario: You want to minimize costs for a fault-tolerant batch processing job. Which VM type?",
+    "answer": "Spot VMs (Preemptible)",
+    "explanation": "Spot VMs are up to 91% cheaper but can be terminated by Google at any time. Perfect for stateless batch jobs that can retry.",
+    "tags": ["compute", "cost"],
+    "level": 1
+  },
+  {
+    "id": 4,
+    "question": "Scenario: You need to connect a VM in your VPC to a Cloud SQL instance securely without public internet.",
+    "answer": "Private Services Access (VPC Peering)",
+    "explanation": "Cloud SQL lives in a Google-managed VPC. Peering bridges your VPC to theirs, allowing private IP communication.",
+    "tags": ["networking", "sql"],
+    "level": 2
+  },
+  {
+    "id": 5,
+    "question": "Scenario: You deployed a new version of an App Engine service but users report bugs. How to rollback instantly?",
+    "answer": "Split traffic 100% back to the previous version",
+    "explanation": "App Engine keeps old versions running (unless stopped). You can instantly route 100% of traffic back to V1 via Console or CLI.",
+    "tags": ["app-engine", "ops"],
+    "level": 2
+  },
+  {
+    "id": 6,
+    "question": "Scenario: You need to grant a temporary contractor access to upload files to one specific bucket. How?",
+    "answer": "Grant 'Storage Object Creator' role on the bucket (Resource-level IAM)",
+    "explanation": "Least Privilege: Don't give project-wide access. Use IAM conditions or resource-level bindings on just that bucket.",
+    "tags": ["iam", "security"],
+    "level": 2
+  },
+  {
+    "id": 7,
+    "question": "Scenario: Your GKE cluster needs to scale based on the number of requests per second (RPS), not CPU. What do you use?",
+    "answer": "Horizontal Pod Autoscaler (HPA) with Custom Metrics",
+    "explanation": "Default HPA scales on CPU/Memory. For application metrics (RPS), you need to export custom metrics to Stackdriver and use the external metrics adapter.",
+    "tags": ["gke", "scaling"],
+    "level": 3
+  },
+  {
+    "id": 8,
+    "question": "Scenario: You want to control traffic distribution between two versions of a Cloud Run service for A/B testing.",
+    "answer": "Traffic Splitting (Revisions)",
+    "explanation": "Cloud Run allows you to split traffic (e.g., 50/50) between specific revision tags or names.",
+    "tags": ["cloud-run", "ops"],
+    "level": 2
+  },
+  {
+    "id": 9,
+    "question": "Scenario: You deleted a VM instance but the external static IP is still billing you. Why?",
+    "answer": "Static IPs are billed when reserved but UNATTACHED.",
+    "explanation": "If an IP is attached to a running VM, it's free (included). If it's reserved but not used, Google charges an hourly fee to discourage hoarding.",
+    "tags": ["networking", "cost"],
+    "level": 1
+  },
+  {
+    "id": 10,
+    "question": "Scenario: You need to SSH into a VM that has no external IP address. How?",
+    "answer": "Identity-Aware Proxy (IAP) TCP Tunneling",
+    "explanation": "IAP allows SSH access via Google's centralized proxy, authenticated by IAM, without exposing the VM to the public internet.",
+    "tags": ["compute", "security"],
+    "level": 2
+  }
+]
