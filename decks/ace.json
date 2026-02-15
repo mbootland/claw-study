@@ -150,5 +150,53 @@
     "explanation": "Updates the IAM policy of a specific resource (bucket) to grant permissions (role) to an identity (member).",
     "tags": ["gcloud", "iam", "storage"],
     "level": 3
+  },
+  {
+    "id": 20,
+    "question": "Command to deploy an App Engine Standard app?",
+    "answer": "gcloud app deploy",
+    "explanation": "Uploads source code and app.yaml to the staging bucket, builds the container, and deploys it to the default service.",
+    "tags": ["gcloud", "app-engine"],
+    "level": 2
+  },
+  {
+    "id": 21,
+    "question": "Command to split App Engine traffic 50/50 randomly?",
+    "answer": "gcloud app services set-traffic default --splits v1=.5,v2=.5 --split-by=random",
+    "explanation": "Canary deployment pattern. Routes 50% of requests to version 1 and 50% to version 2 regardless of user cookies.",
+    "tags": ["gcloud", "app-engine"],
+    "level": 3
+  },
+  {
+    "id": 22,
+    "question": "Command to deploy a public Cloud Run container?",
+    "answer": "gcloud run deploy <service> --image=<img-url> --allow-unauthenticated",
+    "explanation": "Deploys a container to Cloud Run. The --allow-unauthenticated flag makes the URL accessible to the public internet.",
+    "tags": ["gcloud", "cloud-run"],
+    "level": 2
+  },
+  {
+    "id": 23,
+    "question": "Command to split Cloud Run traffic between revisions?",
+    "answer": "gcloud run services update-traffic <service> --to-revisions=<rev1>=50,<rev2>=50",
+    "explanation": "Updates the traffic splitting configuration for a Cloud Run service to balance load between two revisions.",
+    "tags": ["gcloud", "cloud-run"],
+    "level": 3
+  },
+  {
+    "id": 24,
+    "question": "Command to read the last 10 log entries via CLI?",
+    "answer": "gcloud logging read --limit=10 --format=json",
+    "explanation": "Fetches the most recent logs from Cloud Logging. Can be filtered with strings like 'resource.type=gce_instance'.",
+    "tags": ["gcloud", "ops", "logging"],
+    "level": 2
+  },
+  {
+    "id": 25,
+    "question": "Command to create an Alert Policy from a JSON file?",
+    "answer": "gcloud alpha monitoring policies create --policy-from-file=policy.json",
+    "explanation": "Creates a Stackdriver Monitoring Alert Policy using a definition file. Used for Infrastructure-as-Code setups.",
+    "tags": ["gcloud", "ops", "monitoring"],
+    "level": 3
   }
 ]
