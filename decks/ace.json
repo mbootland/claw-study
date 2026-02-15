@@ -70,5 +70,85 @@
     "explanation": "Allows instances within the VPC (10.0.0.0/16 CIDR) to communicate freely on all ports via internal IP.",
     "tags": ["gcloud", "vpc", "firewall"],
     "level": 1
+  },
+  {
+    "id": 10,
+    "question": "How do you connect kubectl to a GKE cluster?",
+    "answer": "gcloud container clusters get-credentials <name> --zone=<zone>",
+    "explanation": "Updates ~/.kube/config and configures the auth plugin. Required before running any kubectl commands against the cluster.",
+    "tags": ["gcloud", "gke"],
+    "level": 2
+  },
+  {
+    "id": 11,
+    "question": "Command to create a Deployment running 3 Nginx pods?",
+    "answer": "kubectl create deployment web --image=nginx --replicas=3",
+    "explanation": "Creates a Deployment named 'web' that ensures 3 copies of the 'nginx' container are always running.",
+    "tags": ["kubectl", "gke"],
+    "level": 2
+  },
+  {
+    "id": 12,
+    "question": "Command to expose a Deployment as a LoadBalancer service?",
+    "answer": "kubectl expose deployment web --type=LoadBalancer --port=80",
+    "explanation": "Creates a Service of type LoadBalancer, which triggers GCP to provision an external IP address routing to the pods.",
+    "tags": ["kubectl", "gke"],
+    "level": 2
+  },
+  {
+    "id": 13,
+    "question": "Command to scale a Deployment to 5 replicas?",
+    "answer": "kubectl scale deployment web --replicas=5",
+    "explanation": "Manually scales the number of running pods. HPA (Horizontal Pod Autoscaler) can do this automatically based on CPU.",
+    "tags": ["kubectl", "gke"],
+    "level": 2
+  },
+  {
+    "id": 14,
+    "question": "Command to update a Deployment image (Rolling Update)?",
+    "answer": "kubectl set image deployment web nginx=nginx:1.25",
+    "explanation": "Triggers a rolling update to replace old pods with new ones using the specified image version.",
+    "tags": ["kubectl", "gke"],
+    "level": 2
+  },
+  {
+    "id": 15,
+    "question": "Command to connect VPC Peering for Cloud SQL?",
+    "answer": "gcloud services vpc-peerings connect --service=servicenetworking.googleapis.com --ranges=<reserved-range> --network=<vpc>",
+    "explanation": "Establishes Private Services Access, allowing VM instances in your VPC to reach Google-managed services (like Cloud SQL) via internal IP.",
+    "tags": ["gcloud", "sql", "networking"],
+    "level": 3
+  },
+  {
+    "id": 16,
+    "question": "Command to switch a Cloud SQL instance to Private IP only?",
+    "answer": "gcloud beta sql instances patch <instance> --network=<vpc> --no-assign-ip",
+    "explanation": "Removes the Public IP (--no-assign-ip) and enforces connectivity only through the specified VPC network (Private IP).",
+    "tags": ["gcloud", "sql"],
+    "level": 3
+  },
+  {
+    "id": 17,
+    "question": "Command to apply a Lifecycle Policy to a GCS bucket?",
+    "answer": "gcloud storage buckets update gs://<bucket> --lifecycle-file=policy.json",
+    "explanation": "Applies rules (e.g., delete after 30 days) defined in a JSON file to automate object management.",
+    "tags": ["gcloud", "storage"],
+    "level": 2
+  },
+  {
+    "id": 18,
+    "question": "Command to create a Service Account?",
+    "answer": "gcloud iam service-accounts create <name> --display-name='<description>'",
+    "explanation": "Creates a machine identity (email: name@project.iam.gserviceaccount.com) used by applications to authenticate.",
+    "tags": ["gcloud", "iam"],
+    "level": 2
+  },
+  {
+    "id": 19,
+    "question": "Command to grant a role to a Service Account on a bucket?",
+    "answer": "gcloud storage buckets add-iam-policy-binding gs://<bucket> --member='serviceAccount:<email>' --role='roles/storage.objectAdmin'",
+    "explanation": "Updates the IAM policy of a specific resource (bucket) to grant permissions (role) to an identity (member).",
+    "tags": ["gcloud", "iam", "storage"],
+    "level": 3
   }
 ]
